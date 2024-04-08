@@ -57,7 +57,11 @@ export default function RootLayout({
                 </p>
               </div>
             </div>
-            <div className="h-full bg-slate-300">{children}</div>
+            <div className="flex w-full justify-center">
+              <div className="flex w-full max-w-screen-xl justify-between">
+                {children}
+              </div>
+            </div>
           </div>
         </ThemeProvider>
       </body>
