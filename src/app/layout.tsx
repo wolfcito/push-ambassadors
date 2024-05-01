@@ -37,22 +37,6 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <HeaderSection />
-          {/* <div className="grid-cols-1fr grid h-full w-full grid-rows-[auto,1fr,auto]">
-            <div className="flex w-full justify-center px-8 pt-11 lg:px-12">
-              <div className="flex w-full max-w-screen-xl justify-between rounded-3xl border border-slate-200/30 px-4 py-2.5">
-                
-                
-                <p className="flex items-center text-xl">
-                  
-                  <ModeToggle />
-                </p>
-              </div>
-            </div>
-            <div className="flex w-full justify-center">
-              <div className="flex w-full max-w-screen-xl justify-between">
-              </div>
-            </div>
-          </div> */}
           {children}
         </ThemeProvider>
       </body>
