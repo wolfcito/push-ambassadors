@@ -11,19 +11,18 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '~/components/ui/navigation-menu'
-import { ambassadors, optin } from '~/const'
+import { support, services, additional, community } from '~/menu'
 
 export function PushNavigationMenu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Embajadores</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Comunidad</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {ambassadors.map((component) => (
+              {community.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
@@ -37,10 +36,10 @@ export function PushNavigationMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Opt-In</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Soporte</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {optin.map((component) => (
+              {support.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
@@ -54,11 +53,37 @@ export function PushNavigationMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contáctanos
-            </NavigationMenuLink>
-          </Link>
+          <NavigationMenuTrigger>Servicios</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {services.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Más info</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {additional.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
@@ -66,8 +91,8 @@ export function PushNavigationMenu() {
 }
 
 interface ListItemProps extends React.ComponentPropsWithoutRef<typeof Link> {
-  title: string
-  children: React.ReactNode
+  readonly title: string
+  readonly children: React.ReactNode
 }
 
 export function ListItem({
