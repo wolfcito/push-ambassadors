@@ -1,18 +1,14 @@
 'use client'
 
-import Link from 'next/link'
-
-import { cn } from '~/lib/utils'
-
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '~/components/ui/navigation-menu'
 import { support, services, additional, community } from '~/menu'
+import { ListItem } from './menu-item.component'
 
 export function PushNavigationMenu() {
   return (
@@ -87,36 +83,5 @@ export function PushNavigationMenu() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
-
-interface ListItemProps extends React.ComponentPropsWithoutRef<typeof Link> {
-  readonly title: string
-  readonly children: React.ReactNode
-}
-
-export function ListItem({
-  className,
-  title,
-  children,
-  ...props
-}: ListItemProps) {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          {...props}
-          className={cn(
-            'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-[#8B43EE]',
-            className
-          )}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   )
 }
