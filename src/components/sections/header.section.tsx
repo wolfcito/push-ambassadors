@@ -1,11 +1,12 @@
 'use client'
+
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Button } from '~/components/ui/button'
 import { LogoApp } from '~/components/logo-app'
 import Link from 'next/link'
 import { useState } from 'react'
-import { PushNavigationMenu } from '../site/header'
+import { PushNavigationMenu } from '~/components/push-navigation-menu'
 
 const navigation = [
   { name: 'Comunidad', href: '/wip' },
